@@ -19,7 +19,7 @@ export default function RegisterForm() {
         email,
         password,
         options: {
-          data: { name }, // Esto lo usa el trigger para guardar en la tabla 'users'
+          data: { name },
         },
       });
 
