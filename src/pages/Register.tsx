@@ -14,7 +14,6 @@ export default function RegisterForm() {
     setLoading(true);
 
     try {
-      // ✅ 1️⃣ Crear usuario en Supabase Auth
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
