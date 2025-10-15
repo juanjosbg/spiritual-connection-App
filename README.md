@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# 🧘‍♀️ MindBalance — Tu App de Bienestar Mental, Energía y Comunidad
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MindBalance** es una PWA (Progressive Web App) gratuita enfocada en ayudar a personas con sobrepensamiento, ansiedad o desconexión espiritual, combinando meditación, herramientas energéticas, journaling y comunidad.  
+Construida con **Vite + React + Supabase + Firebase**, su misión es llevar bienestar real y accesible a cualquier persona con conexión a Internet.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objetivo Principal
 
-## React Compiler
+Ayudar a las personas a recuperar su equilibrio interior (mente, cuerpo y energía) a través de:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Meditaciones guiadas
+- Respiración consciente
+- Registro emocional diario (journaling)
+- Educación espiritual práctica
+- Comunidad de apoyo empático
+- Recordatorios de bienestar personalizados
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologías Usadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Herramienta     | Descripción                                                  |
+|-----------------|--------------------------------------------------------------|
+| **Vite + React**| Frontend veloz y moderno, fácil de escalar                   |
+| **Supabase**    | Base de datos PostgreSQL + autenticación y almacenamiento    |
+| **Firebase**    | Almacenamiento de audio (Firebase Storage) + notificaciones  |
+| **PWA**         | Se comporta como app móvil sin necesidad de tiendas          |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧩 Funcionalidades por Módulo
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🔹 Fase 1 — Meditación y Respiración (Core del producto)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+> ✅ *Primera funcionalidad lanzada. Enfoque: calmar la mente.*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Página principal con frases motivacionales diarias
+- Reproductor de audio para meditaciones guiadas (Firebase MP3)
+- Rutinas de 5, 10 y 15 minutos
+- Ejercicios de respiración (4-7-8, box breathing, pranayama) con cronómetro y animaciones
+- UI minimalista, relajante y accesible
+
+---
+
+### 🔹 Fase 2 — Diario Emocional (Journaling)
+
+> ✍️ *Conecta con autoconocimiento y hábitos diarios*
+
+- Registro diario de emociones, pensamientos y energía
+- Estadísticas simples (gráfico semanal)
+- Detección de patrones emocionales (e.g. “me siento peor los lunes”)
+- Recomendaciones automáticas (meditaciones según estado emocional)
+
+---
+
+### 🔹 Fase 3 — Espiritualidad Práctica
+
+> 🌱 *Educación espiritual sin dogmas*
+
+- Microclases gratuitas en video/audio sobre chakras, energía, yoga, gratitud
+- Ejercicios energéticos (e.g. “cómo liberar energía estancada”)
+- Rituales simples: agradecimiento matutino, limpieza energética semanal
+- Descarga de recursos offline
+
+---
+
+### 🔹 Fase 4 — Comunidad Consciente
+
+> 🤝 *Apoyo social en un espacio seguro*
+
+- Foros temáticos tipo Reddit (ansiedad, gratitud, meditación)
+- Retos semanales: “7 días sin sobrepensar”, etc.
+- Reacciones positivas (“gracias”, “abrazos”, “luz 🌞”)
+- Moderación automática con IA (evitar desinformación y spam)
+
+---
+
+### 🔹 Fase 5 — Recordatorios & Gamificación
+
+> 🔔 *Motivación + constancia = progreso real*
+
+- Notificaciones personalizadas: “respira 1 minuto”, “registra tu emoción”
+- Insignias por constancia
+- Estadísticas de progreso emocional
+- Configuración de frecuencia según nivel de ansiedad
+
+---
+
+## 🧠 Arquitectura General
+
+> Frontend:
+- React + Vite
+- Styled Components o TailwindCSS (opcional)
+- PWA configurada (manifest + service workers)
+
+>Backend:
+- Supabase (DB + auth + funciones serverless)
+
+---
+
+## 🧪 Roadmap de Desarrollo
+
+| Fase | Estado           | Módulo Principal                         |
+|------|------------------|------------------------------------------|
+| 1    | ✅ Completado   | Meditación y respiración                  |
+| 2    | 🚧 En progreso  | Diario emocional                          |
+| 3    | ⏳ Pendiente    | Educación espiritual y energía            |
+| 4    | ⏳ Pendiente    | Comunidad consciente                      |
+| 5    | ⏳ Pendiente    | Recordatorios de bienestar + gamificación |
+
+---
+
+## 🙌 Público Objetivo
+
+- Personas con ansiedad, estrés o sobrepensamiento
+- Usuarios con interés en autoconocimiento o espiritualidad práctica
+- Aquellos que buscan rutinas simples, sin pagar suscripciones
+
+---
+
+## 🤝 Contribuciones
+
+¿Te interesa colaborar en el proyecto?  
+¡Estoy abierto a pull requests, ideas y mejoras!
