@@ -64,7 +64,7 @@ const Index = () => {
                 Encuentra paz mental y equilibrio espiritual con meditaciones guiadas
                 y ejercicios de respiración consciente
               </p>
-            </section>
+            </section>  
 
             {/* Daily Quote */}
             <DailyQuote />

@@ -1,70 +1,161 @@
 @import "tailwindcss";
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background: 270 40% 98%;
+    --foreground: 260 20% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 20% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 20% 25%;
+
+    --primary: 270 60% 75%;
+    --primary-foreground: 270 60% 15%;
+    --primary-glow: 270 70% 85%;
+
+    --secondary: 160 50% 80%;
+    --secondary-foreground: 160 50% 20%;
+
+    --muted: 270 30% 95%;
+    --muted-foreground: 260 15% 45%;
+
+    --accent: 340 60% 85%;
+    --accent-foreground: 340 60% 20%;
+
+    --calm: 200 60% 85%;
+    --calm-foreground: 200 60% 20%;
+
+    --warmth: 30 70% 85%;
+    --warmth-foreground: 30 70% 25%;
+
+    --destructive: 0 70% 70%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 20% 90%;
+    --input: 270 20% 92%;
+    --ring: 270 60% 75%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-spiritual: linear-gradient(135deg, hsl(270 60% 75%), hsl(200 60% 85%));
+    --gradient-calm: linear-gradient(180deg, hsl(270 40% 98%), hsl(200 50% 95%));
+    --gradient-energy: linear-gradient(135deg, hsl(160 50% 80%), hsl(270 60% 85%));
+    --gradient-warmth: linear-gradient(135deg, hsl(340 60% 85%), hsl(30 70% 85%));
+
+    /* Shadows */
+    --shadow-soft: 0 8px 24px -4px hsl(270 60% 75% / 0.2);
+    --shadow-glow: 0 0 40px hsl(270 70% 85% / 0.4);
+    --shadow-card: 0 4px 16px -2px hsl(270 40% 70% / 0.15);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    --background: 260 30% 10%;
+    --foreground: 270 40% 95%;
+
+    --card: 260 25% 15%;
+    --card-foreground: 270 40% 95%;
+
+    --popover: 260 25% 15%;
+    --popover-foreground: 270 40% 95%;
+
+    --primary: 270 60% 65%;
+    --primary-foreground: 270 40% 95%;
+    --primary-glow: 270 70% 55%;
+
+    --secondary: 160 40% 50%;
+    --secondary-foreground: 270 40% 95%;
+
+    --muted: 260 20% 20%;
+    --muted-foreground: 270 20% 65%;
+
+    --accent: 340 50% 60%;
+    --accent-foreground: 270 40% 95%;
+
+    --calm: 200 50% 60%;
+    --calm-foreground: 270 40% 95%;
+
+    --warmth: 30 60% 60%;
+    --warmth-foreground: 260 30% 10%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 270 40% 95%;
+
+    --border: 260 20% 25%;
+    --input: 260 20% 25%;
+    --ring: 270 60% 65%;
+
+    --gradient-spiritual: linear-gradient(135deg, hsl(270 60% 45%), hsl(200 50% 45%));
+    --gradient-calm: linear-gradient(180deg, hsl(260 30% 10%), hsl(260 25% 15%));
+    --gradient-energy: linear-gradient(135deg, hsl(160 40% 40%), hsl(270 60% 45%));
+    --gradient-warmth: linear-gradient(135deg, hsl(340 50% 50%), hsl(30 60% 50%));
+
+    --shadow-soft: 0 8px 24px -4px hsl(270 60% 20% / 0.5);
+    --shadow-glow: 0 0 40px hsl(270 70% 40% / 0.3);
+    --shadow-card: 0 4px 16px -2px hsl(260 40% 10% / 0.4);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium;
+  }
+}
+
+@layer components {
+  .breathe-animation {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
